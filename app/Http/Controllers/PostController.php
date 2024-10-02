@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['user', 'tags'])->orderBy('created_at', 'DESC')->get();
+        $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();
         return view('posts.index', compact('posts'));
     }
     
@@ -40,19 +40,19 @@ class PostController extends Controller
         $post = Post::create($validated);
         
         // Extract tags from the content (assumes tags are prefixed by #)
-        preg_match_all('/#(\w+)/', $request->input('body'), $matches);
-        $tags = $matches[1];
+        // preg_match_all('/#(\w+)/', $request->input('body'), $matches);
+        // $tags = $matches[1];
         
         // Attach tags to the post
-        foreach ($tags as $tag_name) {
-            // First or create the tag
-            $tag = Tag::firstOrCreate(['tag_name' => $tag_name]);
-            // Attach the tag to the post
-            $post->tags()->attach($tag);
-        }
+        // foreach ($tags as $tag_name) {
+        //     // First or create the tag
+        //     $tag = Tag::firstOrCreate(['tag_name' => $tag_name]);
+        //     // Attach the tag to the post
+        //     $post->tags()->attach($tag);
+        // }
         
-        $posts = Post::with(['user', 'tags'])->orderBy('created_at', 'DESC')->get();                
-        return route('posts.index', ['posts' => $posts]);
+        $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();                
+        return route('home', ['posts' => $posts]);
     }
     
     /**
@@ -60,7 +60,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -83,18 +83,18 @@ class PostController extends Controller
         $post->update( $validated );
         
         // Extract tags from the content (assumes tags are prefixed by #)
-        preg_match_all('/#(\w+)/', $request->input('body'), $matches);
-        $tags = $matches[1];
+        // preg_match_all('/#(\w+)/', $request->input('body'), $matches);
+        // $tags = $matches[1];
         
         // Attach tags to the post
-        foreach ($tags as $tag_name) {
-            // First or create the tag
-            $tag = Tag::firstOrCreate(['tag_name' => $tag_name]);
-            // Attach the tag to the post
-            $post->tags()->attach($tag);
-        }
-
-        $posts = Post::with(['user', 'tags'])->orderBy('created_at', 'DESC')->get();
+        // foreach ($tags as $tag_name) {
+        //     // First or create the tag
+        //     $tag = Tag::firstOrCreate(['tag_name' => $tag_name]);
+        //     // Attach the tag to the post
+        //     $post->tags()->attach($tag);
+        // }
+        
+        $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();
         return route('posts.index', ['posts' => $posts]);        
     }
     

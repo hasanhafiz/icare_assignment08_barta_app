@@ -18,7 +18,7 @@ return new class extends Migration
             // $table->string('title');
             // $table->string('slug')->unique();
             $table->text('body');
-            // $table->bigInteger('views_count')->default(0);
+            $table->bigInteger('views_count')->default(0);
             $table->timestamps();
         });
     }

@@ -10,8 +10,7 @@
         <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
             {{ session('status') }}
           </div>        
-        @endif
-        
+        @endif        
         
         <!-- Profile Info -->
         <div class="flex gap-4 justify-center flex-col text-center items-center">

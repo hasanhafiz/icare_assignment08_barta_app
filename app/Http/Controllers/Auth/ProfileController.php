@@ -15,7 +15,7 @@ class ProfileController extends Controller
     {
         return view('profiles.index');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
