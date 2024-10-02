@@ -21,7 +21,7 @@
         </ul>
         @endif
         <!-- Post Edit Form -->
-        <form method="POST" action="{{ route('posts.edit', $post->id) }}">        
+        <form method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data" id="form-barta">        
         @csrf
         @method('PUT')
         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
