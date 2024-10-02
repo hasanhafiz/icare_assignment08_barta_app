@@ -17,8 +17,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'firstname',
+        'lastname',
         'fullname',
         'username',
+        'bio',
         'email',
         'password',
     ];
@@ -45,4 +48,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    
+    // User has many Posts
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+        
 }

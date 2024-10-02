@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\PostController;
 
 Route::group(['middleware' => 'guest'], function(){
    Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -15,12 +16,10 @@ Route::group(['middleware' => 'guest'], function(){
 // Protecting Routes
 // Only authenticated users may access this route...
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
-
-   Route::get('/home', [HomeController::class, 'index']);
+    Route::get('/', [PostController::class, 'index'])->name('home');   
+   Route::get('/home', [PostController::class, 'index']);
    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-   Route::resource('/profiles', ProfileController::class);
+   Route::resource('/profiles', ProfileController::class);   
+   Route::resource('posts', PostController::class);
 
 });
