@@ -25,7 +25,7 @@
                             class="text-gray-900 hover:text-white border-2 border-gray-800 hover:bg-gray-900 focus:ring-2 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hidden md:block">Create Post
                             
                         </a>                        
-
+                        
                         <!-- Profile dropdown -->
                         <div class="relative ml-3" x-data="{ open: false }">
                             <div>
