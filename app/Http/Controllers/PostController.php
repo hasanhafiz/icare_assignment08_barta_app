@@ -34,10 +34,10 @@ class PostController extends Controller
     {        
         // Validate the request
         $validated = $request->validated();            
-        $post = Post::create($validated);
+        Post::create($validated);
         
         $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();                
-        return route('home', ['posts' => $posts]);
+        return redirect()->route('home', ['posts' => $posts]);
     }
     
     /**
@@ -66,7 +66,7 @@ class PostController extends Controller
         $post->update( $validated );
             
         $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();
-        return route('posts.index', ['posts' => $posts]);        
+        return redirect()->route('posts.index', ['posts' => $posts]);        
     }
     
     /**
