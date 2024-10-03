@@ -31,25 +31,10 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StorePostRequest $request)
-    {
-        
+    {        
         // Validate the request
-        $validated = $request->validated();
-                
-        // dd( $request->all() );
+        $validated = $request->validated();            
         $post = Post::create($validated);
-        
-        // Extract tags from the content (assumes tags are prefixed by #)
-        // preg_match_all('/#(\w+)/', $request->input('body'), $matches);
-        // $tags = $matches[1];
-        
-        // Attach tags to the post
-        // foreach ($tags as $tag_name) {
-        //     // First or create the tag
-        //     $tag = Tag::firstOrCreate(['tag_name' => $tag_name]);
-        //     // Attach the tag to the post
-        //     $post->tags()->attach($tag);
-        // }
         
         $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();                
         return route('home', ['posts' => $posts]);
@@ -62,7 +47,7 @@ class PostController extends Controller
     {
         return view('posts.show', compact('post'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -78,22 +63,8 @@ class PostController extends Controller
     {
         // Validate the request
         $validated = $request->validated();
-                        
-        // dd( $request->all() );
         $post->update( $validated );
-        
-        // Extract tags from the content (assumes tags are prefixed by #)
-        // preg_match_all('/#(\w+)/', $request->input('body'), $matches);
-        // $tags = $matches[1];
-        
-        // Attach tags to the post
-        // foreach ($tags as $tag_name) {
-        //     // First or create the tag
-        //     $tag = Tag::firstOrCreate(['tag_name' => $tag_name]);
-        //     // Attach the tag to the post
-        //     $post->tags()->attach($tag);
-        // }
-        
+            
         $posts = Post::with(['user'])->orderBy('created_at', 'DESC')->get();
         return route('posts.index', ['posts' => $posts]);        
     }
