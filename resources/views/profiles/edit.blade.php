@@ -40,7 +40,7 @@
                             <div class="sm:col-span-3">
                                 <label for="firstname" class="block text-sm font-medium leading-6 text-gray-900">First Name</label>
                                 <div class="mt-2">
-                                    <input type="text" name="firstname" id="firstname" value="{{ old('firstname', auth()->user()->firstname  ) }}"
+                                    <input type="text" name="firstname" id="firstname" required value="{{ old('firstname', auth()->user()->firstname  ) }}"
                                         class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
@@ -48,16 +48,16 @@
                             <div class="sm:col-span-3">
                                 <label for="lastname" class="block text-sm font-medium leading-6 text-gray-900">Last Name</label>
                                 <div class="mt-2">
-                                    <input type="text" name="lastname" id="last-name" value="{{ old('lastname' , auth()->user()->lastname) }}"
+                                    <input type="text" name="lastname" id="last-name" required value="{{ old('lastname' , auth()->user()->lastname) }}"
                                         class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
 
                             <div class="col-span-full">
-                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
+                                <label for="email"  class="block text-sm font-medium leading-6 text-gray-900">Email
                                     address</label>
                                 <div class="mt-2">
-                                    <input id="email" name="email" type="email" value="{{ auth()->user()->email }}"
+                                    <input id="email" name="email" type="email" required value="{{ auth()->user()->email }}"
                                         class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                         <div class="col-span-full">
                             <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Bio</label>
                             <div class="mt-2">
-                                <textarea id="bio" name="bio" rows="3"
+                                <textarea id="bio" name="bio" required rows="3"
                                     class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">{{ old('bio', auth()->user()->bio) }}</textarea>
                             </div>
                             <p class="mt-3 text-sm leading-6 text-gray-600">
