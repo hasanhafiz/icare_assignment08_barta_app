@@ -19,7 +19,7 @@ Before proceeding with the installation, ensure that your system meets the follo
 
 - **PHP >= 8.1** ([Download PHP](https://www.php.net/downloads.php))
 - **Composer** ([Download Composer](https://getcomposer.org/download/))
-- **Laravel 10** ([Laravel Installation Guide](https://laravel.com/docs/10.x/installation))
+- **Laravel 11** ([Laravel Installation Guide](https://laravel.com/docs/11.x/installation))
 - **MySQL** ([MySQL Installation Guide](https://www.mysql.com/downloads/))
 - **Node.js & NPM** ([Node.js Downloads](https://nodejs.org/en/))
 - **Git** ([Git Installation Guide](https://git-scm.com/downloads))
