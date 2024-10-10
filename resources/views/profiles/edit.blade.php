@@ -72,12 +72,12 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="col-span-full">
                             <label for="bio" class="block text-sm font-medium leading-6 text-gray-900">Bio</label>
                             <div class="mt-2">
-                                <textarea id="bio" name="bio" required rows="3"
+                                <textarea id="bio" name="bio" required rows="3" required
                                     class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">{{ old('bio', auth()->user()->bio) }}</textarea>
                             </div>
                             <p class="mt-3 text-sm leading-6 text-gray-600">
