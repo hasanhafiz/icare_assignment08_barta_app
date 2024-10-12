@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -65,8 +66,13 @@ class ProfileController extends Controller
         $user = User::find( $id );
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
+        $user->fullname = $request->firstname . ' ' .$request->lastname;
         $user->bio = $request->bio;
-       // $user->password = Hash::make( $request->password );
+        
+        if ( !empty( $request->password ) ) {
+            $user->password = Hash::make( $request->password );
+        }
+        
         $user->save();
         return redirect()->route('profiles.index')->with('status', 'User profile updated Successfully.');
 
